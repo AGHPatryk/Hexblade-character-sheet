@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Arms of Hadar",
+    "level": 1,
+    "school": "Conjuration",
+    "classes": ["Warlock"],
+    "casting_time": "Action",
+    "range": "Self",
+    "components": "V, S",
+    "duration": "Instantaneous",
+    "description": "Summons dark energy tendrils from the caster, forcing nearby targets to make a Strength saving throw or take necrotic damage."
+  },
+  {
+    "name": "Armor of Agathys",
+    "level": 1,
+    "school": "Abjuration",
+    "classes": ["Warlock"],
+    "casting_time": "Bonus Action",
+    "range": "Self",
+    "components": "V, S, M (a shard of blue glass)",
+    "duration": "1 hour",
+    "description": "Surrounds the caster in protective magical frost that grants temporary hit points and retaliates with cold damage against melee attackers."
+  },
+  {
+    "name": "Astral Projection",
+    "level": 9,
+    "school": "Necromancy",
+    "classes": ["Cleric", "Warlock", "Wizard"],
+    "casting_time": "1 hour",
+    "range": "10 feet",
+    "components": "V, S, M (specific valuable components)",
+    "duration": "Until dispelled",
+    "description": "Projects the soul and form of the caster and willing allies into the Astral Plane, leaving their physical bodies behind in suspended animation."
+  },
+  {
+    "name": "Aura of Purity",
+    "level": 4,
+    "school": "Abjuration",
+    "classes": ["Cleric", "Paladin"],
+    "casting_time": "Action",
+    "range": "Self",
+    "components": "V",
+    "duration": "Concentration, up to 10 minutes",
+    "description": "Emits a cleansing energy field around the caster that grants nearby allies resistance to poison and protection against multiple adverse conditions."
+  }
+]
