@@ -119,11 +119,13 @@ function renderSpells() {
   const R = casting(c);
   if (!R) return;
   const p = getPicks(c);
-  const chosen = [...p.cantrips, ...p.spells].map(n => DB.find(s => s.name === n)).filter(Boolean).sort(bylevel);
+  const chosen = [...p.cantrips, ...p.spells].map(n => DB.find(s => s.name === n)).filter(Boolean)
+    .map(s => ({ s, cast: castLevel(s, p, R) }))
+    .sort((a, b) => a.cast - b.cast || a.s.name.localeCompare(b.s.name));
   let h = "", last = -1;
-  chosen.forEach(s => {
-    if (s.level !== last) { last = s.level; h += `<h3 class="lvl">${levelName(s.level)}</h3>`; }
-    h += spellHtml(s, c.level);
+  chosen.forEach(({ s, cast }) => {
+    if (cast !== last) { last = cast; h += `<h3 class="lvl">${levelName(cast)}</h3>`; }
+    h += spellHtml(s, c.level, cast);
   });
   $("sheet").insertAdjacentHTML("beforeend", `
   <section class="panel spells">
@@ -132,7 +134,7 @@ function renderSpells() {
       <span><span class="lbl">Ability</span>${R.ab.toUpperCase()}</span>
       <span><span class="lbl">Spell save DC</span>${R.dc}</span>
       <span><span class="lbl">Spell attack</span>${fmt(R.atk)}</span>
-      ${R.slots.map((n, i) => `<span><span class="lbl">${ord(i + 1)} level slots</span>${n}</span>`).join("")}
+      ${R.slots.map((n, i) => n ? `<span><span class="lbl">${ord(i + 1)} level slots${R.pact ? " (pact)" : ""}</span>${n}</span>` : "").join("")}
     </div>
     ${h || "<p>No spells chosen yet. Use Choose spells to pick them.</p>"}
   </section>`);

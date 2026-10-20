@@ -69,3 +69,7 @@ p{margin:.2rem 0}
 .savebar .ctl{margin:0}
 .hint{color:var(--red);font-style:italic;min-height:1.4em}
 .btn.ghost{background:transparent;color:var(--ink)}
+.pick{flex-wrap:wrap}
+.cast{font-size:.85rem;white-space:nowrap;margin-top:.3rem}
+.cast select{font:inherit;border:2px solid var(--ink);border-radius:6px;background:#fffaf0;padding:.1rem .2rem}
+.spell summary small{font-weight:400;color:var(--red)}

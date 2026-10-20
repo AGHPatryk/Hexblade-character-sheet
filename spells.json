@@ -57,7 +57,8 @@
   "classes": [
    "wizard",
    "sorcerer",
-   "bard"
+   "bard",
+   "warlock"
   ],
   "time": "1 action",
   "range": "30 ft",
@@ -139,10 +140,12 @@
   "range": "120 ft",
   "components": "V, S",
   "duration": "Instantaneous",
-  "damage": "3 × (1d4+1)",
+  "damage": "1d4+1",
   "type": "force",
   "desc": "Three glowing darts strike creatures you choose and never miss.",
-  "higher": "One extra dart for each slot level above 1st."
+  "higher": "One extra dart for each slot level above 1st.",
+  "count": 3,
+  "upCount": 1
  },
  {
   "name": "Shield",
@@ -188,7 +191,8 @@
   "type": "fire",
   "save": "DEX",
   "desc": "Flames fan out from your fingers. Half damage on a successful save.",
-  "higher": "+1d6 for each slot level above 1st."
+  "higher": "+1d6 for each slot level above 1st.",
+  "up": "1d6"
  },
  {
   "name": "Thunderwave",
@@ -208,7 +212,8 @@
   "type": "thunder",
   "save": "CON",
   "desc": "A booming wave. Failed save: damage and pushed 10 ft. Success: half damage.",
-  "higher": "+1d8 for each slot level above 1st."
+  "higher": "+1d8 for each slot level above 1st.",
+  "up": "1d8"
  },
  {
   "name": "Sleep",
@@ -242,7 +247,8 @@
   "damage": "1d8",
   "type": "healing",
   "desc": "A creature you touch regains hit points equal to the dice plus your spellcasting modifier.",
-  "higher": "+1d8 for each slot level above 1st."
+  "higher": "+1d8 for each slot level above 1st.",
+  "up": "1d8"
  },
  {
   "name": "Healing Word",
@@ -260,7 +266,8 @@
   "damage": "1d4",
   "type": "healing",
   "desc": "A creature you can see regains hit points equal to the dice plus your spellcasting modifier.",
-  "higher": "+1d4 for each slot level above 1st."
+  "higher": "+1d4 for each slot level above 1st.",
+  "up": "1d4"
  },
  {
   "name": "Guiding Bolt",
@@ -277,7 +284,8 @@
   "type": "radiant",
   "attack": "Ranged",
   "desc": "A flash of light. The next attack roll against the target before your next turn has advantage.",
-  "higher": "+1d6 for each slot level above 1st."
+  "higher": "+1d6 for each slot level above 1st.",
+  "up": "1d6"
  },
  {
   "name": "Bless",
@@ -322,11 +330,13 @@
   "range": "120 ft",
   "components": "V, S",
   "duration": "Instantaneous",
-  "damage": "3 × 2d6",
+  "damage": "2d6",
   "type": "fire",
   "attack": "Ranged",
   "desc": "Three rays of fire, each needing its own attack roll.",
-  "higher": "One extra ray for each slot level above 2nd."
+  "higher": "One extra ray for each slot level above 2nd.",
+  "count": 3,
+  "upCount": 1
  },
  {
   "name": "Misty Step",
@@ -334,7 +344,8 @@
   "school": "Conjuration",
   "classes": [
    "wizard",
-   "sorcerer"
+   "sorcerer",
+   "warlock"
   ],
   "time": "1 bonus action",
   "range": "Self",
@@ -351,7 +362,8 @@
    "cleric",
    "sorcerer",
    "bard",
-   "druid"
+   "druid",
+   "warlock"
   ],
   "time": "1 action",
   "range": "60 ft",
@@ -376,7 +388,9 @@
   "type": "force",
   "attack": "Melee",
   "desc": "A floating weapon strikes on the turn you cast it and as a bonus action on later turns.",
-  "higher": "+1d8 for every two slot levels above 2nd."
+  "higher": "+1d8 for every two slot levels above 2nd.",
+  "up": "1d8",
+  "every": 2
  },
  {
   "name": "Shatter",
@@ -385,7 +399,8 @@
   "classes": [
    "wizard",
    "sorcerer",
-   "bard"
+   "bard",
+   "warlock"
   ],
   "time": "1 action",
   "range": "60 ft",
@@ -395,7 +410,8 @@
   "type": "thunder",
   "save": "CON",
   "desc": "A painfully loud ring in a 10 ft radius. Half damage on a success.",
-  "higher": "+1d8 for each slot level above 2nd."
+  "higher": "+1d8 for each slot level above 2nd.",
+  "up": "1d8"
  },
  {
   "name": "Fireball",
@@ -413,7 +429,8 @@
   "type": "fire",
   "save": "DEX",
   "desc": "A bright streak blossoms into a 20 ft radius explosion. Half damage on a success.",
-  "higher": "+1d6 for each slot level above 3rd."
+  "higher": "+1d6 for each slot level above 3rd.",
+  "up": "1d6"
  },
  {
   "name": "Lightning Bolt",
@@ -431,7 +448,8 @@
   "type": "lightning",
   "save": "DEX",
   "desc": "A 5 ft wide bolt of lightning. Half damage on a success.",
-  "higher": "+1d6 for each slot level above 3rd."
+  "higher": "+1d6 for each slot level above 3rd.",
+  "up": "1d6"
  },
  {
   "name": "Counterspell",
@@ -439,7 +457,8 @@
   "school": "Abjuration",
   "classes": [
    "wizard",
-   "sorcerer"
+   "sorcerer",
+   "warlock"
   ],
   "time": "1 reaction",
   "range": "60 ft",
@@ -475,7 +494,8 @@
   "type": "radiant",
   "save": "WIS",
   "desc": "Spirits surround you and hamper hostile creatures. Half damage on a success.",
-  "higher": "+1d8 for each slot level above 3rd."
+  "higher": "+1d8 for each slot level above 3rd.",
+  "up": "1d8"
  },
  {
   "name": "Ice Storm",
@@ -494,7 +514,8 @@
   "type": "bludgeoning and cold",
   "save": "DEX",
   "desc": "Hail pounds a 20 ft radius and makes the ground difficult terrain. Half damage on a success.",
-  "higher": "+1d8 bludgeoning for each slot level above 4th."
+  "higher": "+1d8 bludgeoning for each slot level above 4th.",
+  "up": "1d8"
  },
  {
   "name": "Polymorph",
@@ -529,7 +550,8 @@
   "type": "cold",
   "save": "CON",
   "desc": "A blast of cold air. Creatures killed by it become frozen statues. Half damage on a success.",
-  "higher": "+1d8 for each slot level above 5th."
+  "higher": "+1d8 for each slot level above 5th.",
+  "up": "1d8"
  },
  {
   "name": "Wall of Force",
@@ -559,7 +581,8 @@
   "type": "fire and radiant",
   "save": "DEX",
   "desc": "A column of divine fire in a 10 ft radius. Half damage on a success.",
-  "higher": "+1d6 fire or radiant for each slot level above 5th."
+  "higher": "+1d6 fire or radiant for each slot level above 5th.",
+  "up": "1d6"
  },
  {
   "name": "Chain Lightning",
@@ -612,5 +635,134 @@
   "type": "fire and bludgeoning",
   "save": "DEX",
   "desc": "Four blazing orbs strike different points and explode in 40 ft radius spheres. Half damage on a success."
+ },
+ {
+  "name": "Eldritch Blast",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "warlock"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d10",
+  "type": "force",
+  "attack": "Ranged",
+  "beams": true,
+  "desc": "A beam of crackling energy. Gain extra beams at character levels 5, 11 and 17, each with its own attack roll."
+ },
+ {
+  "name": "Chill Touch",
+  "level": 0,
+  "school": "Necromancy",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "warlock"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "1 round",
+  "damage": "1d8",
+  "type": "necrotic",
+  "attack": "Ranged",
+  "desc": "A ghostly hand strikes. The target can't regain hit points until the start of your next turn."
+ },
+ {
+  "name": "Hex",
+  "level": 1,
+  "school": "Enchantment",
+  "classes": [
+   "warlock"
+  ],
+  "time": "1 bonus action",
+  "range": "90 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 1 hour",
+  "damage": "1d6",
+  "type": "necrotic",
+  "higher": "Duration grows to 8 hours at 3rd or 4th level and 24 hours at 5th level.",
+  "desc": "Curse a creature. Your attacks deal an extra 1d6 necrotic damage to it, and it has disadvantage on checks with one ability you choose."
+ },
+ {
+  "name": "Hellish Rebuke",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "warlock"
+  ],
+  "time": "1 reaction",
+  "range": "60 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "2d10",
+  "type": "fire",
+  "save": "DEX",
+  "up": "1d10",
+  "higher": "+1d10 for each slot level above 1st.",
+  "desc": "Answer a creature that just damaged you with flames. Half damage on a successful save."
+ },
+ {
+  "name": "Witch Bolt",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "warlock"
+  ],
+  "time": "1 action",
+  "range": "30 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 1 minute",
+  "damage": "1d12",
+  "type": "lightning",
+  "attack": "Ranged",
+  "up": "1d12",
+  "higher": "+1d12 for each slot level above 1st.",
+  "desc": "A beam of crackling blue energy. Each turn you can use your action to deal the damage again."
+ },
+ {
+  "name": "Vampiric Touch",
+  "level": 3,
+  "school": "Necromancy",
+  "classes": [
+   "wizard",
+   "warlock"
+  ],
+  "time": "1 action",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Concentration, 1 minute",
+  "damage": "3d6",
+  "type": "necrotic",
+  "attack": "Melee",
+  "up": "1d6",
+  "higher": "+1d6 for each slot level above 3rd.",
+  "desc": "A touch drains life. You regain half the damage dealt, and can repeat the attack each turn."
+ },
+ {
+  "name": "Blight",
+  "level": 4,
+  "school": "Necromancy",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "warlock",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "30 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "8d8",
+  "type": "necrotic",
+  "save": "CON",
+  "up": "1d8",
+  "higher": "+1d8 for each slot level above 4th.",
+  "desc": "Necromantic energy withers a creature. Half damage on a successful save."
  }
 ]

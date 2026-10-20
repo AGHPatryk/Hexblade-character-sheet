@@ -3,12 +3,14 @@ loadAll()
   .then(d => { c = d.c; DB = d.spells; R = casting(c); if (!R) throw new Error("not a caster"); pick = getPicks(c); init(); })
   .catch(() => { $("sheet").innerHTML = "<p class='loading'>Could not load spells, or this class has no spellcasting. <a href='index.html'>Back to the sheet</a></p>"; });
 
+const castOf = s => castLevel(s, pick, R);
+
 function init() {
   document.title = "Choose spells: " + c.name;
   $("sheet").innerHTML = `
   <header>
     <h1>${c.name}: choose spells</h1>
-    <p>Level ${c.level} ${c.class}: spells up to ${ord(R.maxLevel)} level. Tick your spells, then press Save.</p>
+    <p>Level ${c.level} ${c.class}: spells up to ${ord(R.maxLevel)} level. Tick your spells, pick a higher cast level if you want one, then press Save.</p>
   </header>
   <div class="savebar">
     <div><span class="count" id="cc"></span> &nbsp; <span class="count" id="sc"></span><div class="hint" id="hint"></div></div>
@@ -25,12 +27,36 @@ function init() {
   $("dl").onclick = () => downloadCharacter(c, pick);
   $("reset").onclick = () => { pick = seedPicks(c); dirty = true; list(); };
   $("list").onchange = e => {
-    const i = e.target, a = i.dataset.l > 0 ? pick.spells : pick.cantrips;
-    if (i.checked) a.push(i.dataset.n); else a.splice(a.indexOf(i.dataset.n), 1);
-    dirty = true; sync();
+    const i = e.target, n = i.dataset.n || i.dataset.c, s = DB.find(x => x.name === n);
+    if (i.dataset.c) {
+      if (+i.value > s.level) pick.casts[n] = +i.value; else delete pick.casts[n];
+    } else {
+      const a = s.level ? pick.spells : pick.cantrips;
+      if (i.checked) a.push(n); else { a.splice(a.indexOf(n), 1); delete pick.casts[n]; }
+    }
+    dirty = true; refresh(i.closest(".pick"), s); sync();
   };
   window.addEventListener("beforeunload", e => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
   list();
+}
+
+function row(s) {
+  const on = (s.level ? pick.spells : pick.cantrips).includes(s.name), cast = castOf(s);
+  let opts = "";
+  if (s.level && R.maxLevel > s.level) {
+    for (let l = s.level; l <= R.maxLevel; l++) opts += `<option value="${l}" ${l === cast ? "selected" : ""}>${ord(l)} level</option>`;
+    opts = `<label class="cast">Cast at <select data-c="${s.name}" ${on ? "" : "disabled"}>${opts}</select></label>`;
+  }
+  return `<div class="pick"><input type="checkbox" data-n="${s.name}" ${on ? "checked" : ""} data-l="${s.level}" aria-label="Select ${s.name}">${spellHtml(s, c.level, cast)}${opts}</div>`;
+}
+
+// Redraw one row's details (damage changes with the cast level) without closing it
+function refresh(r, s) {
+  const d = r.querySelector("details"), open = d.open;
+  d.outerHTML = spellHtml(s, c.level, castOf(s));
+  if (open) r.querySelector("details").open = true;
+  const sel = r.querySelector("select");
+  if (sel) { sel.disabled = !r.querySelector("input").checked; sel.value = castOf(s); }
 }
 
 function list() {
@@ -40,8 +66,7 @@ function list() {
   let last = -1, h = "";
   rows.forEach(s => {
     if (s.level !== last) { last = s.level; h += `<h2>${levelName(s.level)}</h2>`; }
-    const on = (s.level ? pick.spells : pick.cantrips).includes(s.name);
-    h += `<div class="pick"><input type="checkbox" data-n="${s.name}" data-l="${s.level}" ${on ? "checked" : ""} aria-label="Select ${s.name}">${spellHtml(s, c.level)}</div>`;
+    h += row(s);
   });
   $("list").innerHTML = h || "<p>No spells match.</p>";
   sync();

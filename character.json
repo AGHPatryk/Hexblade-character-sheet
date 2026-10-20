@@ -1,29 +1,30 @@
 {
-  "name": "Kaelen Brightwater",
-  "class": "Wizard",
-  "subclass": "School of Evocation",
+  "name": "Seraphine Vale",
+  "class": "Warlock",
+  "subclass": "The Fiend",
   "level": 5,
-  "background": "Sage",
+  "background": "Charlatan",
   "race": "Half-Elf",
-  "alignment": "Neutral Good",
+  "alignment": "Chaotic Neutral",
   "xp": 6500,
-  "abilities": { "str": 8, "dex": 14, "con": 14, "int": 17, "wis": 12, "cha": 10 },
-  "saves": ["int", "wis"],
-  "skills": ["Arcana", "History", "Investigation", "Insight"],
+  "abilities": { "str": 8, "dex": 14, "con": 14, "int": 10, "wis": 12, "cha": 17 },
+  "saves": ["wis", "cha"],
+  "skills": ["Arcana", "Deception", "Intimidation", "Sleight of Hand"],
   "expertise": [],
-  "ac": 12,
+  "ac": 13,
   "speed": 30,
-  "maxHp": 32,
-  "hitDie": "d6",
+  "maxHp": 38,
+  "hitDie": "d8",
   "attacks": [
     { "name": "Dagger", "ability": "dex", "proficient": true, "damage": "1d4", "type": "piercing" },
-    { "name": "Quarterstaff", "ability": "str", "proficient": true, "damage": "1d6", "type": "bludgeoning" }
+    { "name": "Light crossbow", "ability": "dex", "proficient": true, "damage": "1d8", "type": "piercing" }
   ],
   "spellcasting": {
-    "cantrips": ["Fire Bolt", "Ray of Frost", "Mage Hand", "Light"],
-    "spells": ["Magic Missile", "Shield", "Mage Armor", "Burning Hands", "Scorching Ray", "Misty Step", "Fireball", "Counterspell"]
+    "cantrips": ["Eldritch Blast", "Chill Touch", "Mage Hand"],
+    "spells": ["Hex", "Hellish Rebuke", "Misty Step", "Hold Person", "Counterspell", "Vampiric Touch"],
+    "casts": { "Hellish Rebuke": 3, "Hold Person": 3 }
   },
-  "personality": "Curious to a fault, collects obscure footnotes, and keeps calm when a plan catches fire.",
-  "equipment": ["Spellbook", "Quarterstaff", "Dagger", "Component pouch", "Scholar's pack", "Healing potion", "21 gp"],
-  "features": ["Arcane Recovery", "Sculpt Spells", "Darkvision 60 ft", "Fey Ancestry"]
+  "personality": "Smiles at the wrong moments and always reads the fine print of a bargain.",
+  "equipment": ["Leather armor", "Light crossbow, 20 bolts", "2 daggers", "Arcane focus", "Scholar's pack", "Forged letters of passage", "15 gp"],
+  "features": ["Pact Magic", "Dark One's Blessing", "Eldritch Invocations (3 known)", "Pact of the Tome", "Darkvision 60 ft", "Fey Ancestry"]
 }
