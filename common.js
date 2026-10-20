@@ -36,10 +36,13 @@ async function loadAll() {
 
 // Chosen spells live in the browser; character.json provides the starting selection
 const pickKey = c => "spells:" + c.name;
-function getPicks(c) {
-  try { const p = JSON.parse(localStorage.getItem(pickKey(c))); if (p) return p; } catch (e) {}
+function seedPicks(c) {
   const s = c.spellcasting || {};
   return { cantrips: [...(s.cantrips || [])], spells: [...(s.spells || [])] };
+}
+function getPicks(c) {
+  try { const p = JSON.parse(localStorage.getItem(pickKey(c))); if (p) return p; } catch (e) {}
+  return seedPicks(c);
 }
 function savePicks(c, p) { try { localStorage.setItem(pickKey(c), JSON.stringify(p)); } catch (e) {} }
 function resetPicks(c) { try { localStorage.removeItem(pickKey(c)); } catch (e) {} }
@@ -65,4 +68,14 @@ function spellHtml(s, L) {
   return `<details class="spell"><summary><b>${s.name}</b><span>${dmg(s, L) || "No damage"}</span><span>${s.type || ""}</span></summary>
     <p>${s.desc}</p>${s.higher ? `<p><em>At higher levels:</em> ${s.higher}</p>` : ""}
     <dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></details>`;
+}
+
+// Saves character.json with the given spell picks merged in, ready to commit to the repo
+function downloadCharacter(c, p) {
+  const out = { ...c, spellcasting: { ...(c.spellcasting || {}), cantrips: p.cantrips, spells: p.spells } };
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2) + "\n"], { type: "application/json" }));
+  a.download = "character.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
