@@ -127,7 +127,7 @@ function renderSpells() {
   });
   $("sheet").insertAdjacentHTML("beforeend", `
   <section class="panel spells">
-    <div class="sp-head"><h2>Spellcasting</h2><a class="btn" href="spells.html">Choose spells</a></div>
+    <div class="sp-head"><h2>Spellcasting</h2><span><button class="ghost" id="dlc">Download character.json</button> <a class="btn" href="spells.html">Choose spells</a></span></div>
     <div class="sp-stats">
       <span><span class="lbl">Ability</span>${R.ab.toUpperCase()}</span>
       <span><span class="lbl">Spell save DC</span>${R.dc}</span>
@@ -136,4 +136,8 @@ function renderSpells() {
     </div>
     ${h || "<p>No spells chosen yet. Use Choose spells to pick them.</p>"}
   </section>`);
+  $("dlc").onclick = () => downloadCharacter(c, p);
 }
+
+// Coming back with the browser's back button restores a stale page, so reload it
+window.addEventListener("pageshow", e => { if (e.persisted) location.reload(); });
