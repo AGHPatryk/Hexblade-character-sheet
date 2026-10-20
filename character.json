@@ -21,8 +21,8 @@
   ],
   "spellcasting": {
     "cantrips": ["Eldritch Blast", "Chill Touch", "Mage Hand"],
-    "spells": ["Hex", "Hellish Rebuke", "Misty Step", "Hold Person", "Counterspell", "Vampiric Touch"],
-    "casts": { "Hellish Rebuke": 3, "Hold Person": 3 }
+    "spells": ["Hex", "Hellish Rebuke"],
+    "casts": { "Hellish Rebuke": 3}
   },
   "personality": "Smiles at the wrong moments and always reads the fine print of a bargain.",
   "equipment": ["Leather armor", "Light crossbow, 20 bolts", "2 daggers", "Arcane focus", "Scholar's pack", "Forged letters of passage", "15 gp"],
