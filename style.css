@@ -65,3 +65,7 @@ p{margin:.2rem 0}
 .filters input{flex:1 1 12rem}
 .count{font:700 1.1rem "Cinzel",Georgia,serif;margin:.5rem 0 .1rem}
 @media (max-width:600px){.spell summary{grid-template-columns:1fr 1fr}.spell summary b{grid-column:1/-1}}
+.savebar{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.8rem;padding:.5rem .7rem;background:var(--paper);border:2px solid var(--line);border-radius:10px;box-shadow:0 3px 6px rgba(0,0,0,.15)}
+.savebar .ctl{margin:0}
+.hint{color:var(--red);font-style:italic;min-height:1.4em}
+.btn.ghost{background:transparent;color:var(--ink)}
