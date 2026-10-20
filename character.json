@@ -1,0 +1,26 @@
+{
+  "name": "Kaelen Brightwater",
+  "class": "Fighter",
+  "subclass": "Battle Master",
+  "level": 5,
+  "background": "Soldier",
+  "race": "Half-Elf",
+  "alignment": "Neutral Good",
+  "xp": 6500,
+  "abilities": { "str": 16, "dex": 14, "con": 15, "int": 10, "wis": 12, "cha": 8 },
+  "saves": ["str", "con"],
+  "skills": ["Athletics", "Perception", "Intimidation", "Acrobatics"],
+  "expertise": [],
+  "ac": 18,
+  "speed": 30,
+  "maxHp": 49,
+  "hitDie": "d10",
+  "attacks": [
+    { "name": "Longsword", "ability": "str", "proficient": true, "damage": "1d8", "type": "slashing" },
+    { "name": "Longbow", "ability": "dex", "proficient": true, "damage": "1d8", "type": "piercing" },
+    { "name": "Handaxe", "ability": "str", "proficient": true, "damage": "1d6", "type": "slashing" }
+  ],
+  "personality": "Dry humor, fiercely loyal, never leaves a wounded ally behind.",
+  "equipment": ["Chain mail", "Shield", "Longsword", "Longbow, 20 arrows", "2 handaxes", "Explorer's pack", "Healing potion x2", "34 gp"],
+  "features": ["Second Wind", "Action Surge", "Extra Attack", "Combat Superiority (4d8 superiority dice)", "Darkvision 60 ft", "Fey Ancestry"]
+}
