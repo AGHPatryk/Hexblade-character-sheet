@@ -67,13 +67,17 @@ function dmg(s, L, cast) {
   if (!s.damage) return "";
   if (!s.level) {
     const t = 1 + (L >= 5) + (L >= 11) + (L >= 17);
-    return s.beams ? `${t} × ${s.damage}` : s.damage.replace(/^(\d+)d/, (m, n) => n * t + "d");
+    return s.beams ? `${t} × ${s.damage}` : s.damage.replace(/(\d+)d/g, (m, n) => n * t + "d");
   }
   const extra = Math.floor(((cast || s.level) - s.level) / (s.every || 1));
   const parts = s.damage.split(" + ");
   if (s.up && extra > 0) {
-    const n = parseInt(s.up), k = s.part || 0;
-    parts[k] = parts[k].replace(/^(\d+)d/, (m, x) => (+x + n * extra) + "d");
+    // "up" is extra dice per step ("1d6") or a flat amount ("5"); part picks which term grows
+    const dice = s.up.includes("d"), n = parseInt(s.up);
+    parts.forEach((p, k) => {
+      if (s.part !== "all" && k !== (s.part || 0)) return;
+      parts[k] = dice ? p.replace(/^(\d+)d/, (m, x) => (+x + n * extra) + "d") : p.replace(/^\d+$/, x => +x + n * extra);
+    });
   }
   const t = parts.join(" + ");
   return s.count ? `${s.count + (s.upCount || 0) * extra} × ${t.includes("+") ? "(" + t + ")" : t}` : t;
