@@ -1,14 +1,10 @@
 const ABIL = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SKILLS = [["Acrobatics","dex"],["Animal Handling","wis"],["Arcana","int"],["Athletics","str"],["Deception","cha"],["History","int"],["Insight","wis"],["Intimidation","cha"],["Investigation","int"],["Medicine","wis"],["Nature","int"],["Perception","wis"],["Performance","cha"],["Persuasion","cha"],["Religion","int"],["Sleight of Hand","dex"],["Stealth","dex"],["Survival","wis"]];
-const mod = s => Math.floor((s - 10) / 2);
-const fmt = n => (n >= 0 ? "+" : "") + n;
-const $ = id => document.getElementById(id);
-let c, hp, key;
+let c, DB, hp, key;
 
-fetch("character.json")
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(d => { c = d; start(); })
-  .catch(() => { $("sheet").innerHTML = "<p class='loading'>Could not load character.json. Serve the folder over http (GitHub Pages or <code>python -m http.server</code>) rather than opening the file directly.</p>"; });
+loadAll()
+  .then(d => { c = d.c; DB = d.spells; start(); })
+  .catch(() => { $("sheet").innerHTML = "<p class='loading'>Could not load character.json or spells.json. Serve the folder over http (GitHub Pages or <code>python -m http.server</code>) rather than opening the file directly.</p>"; });
 
 function start() {
   key = "hp:" + c.name;
@@ -16,6 +12,7 @@ function start() {
   if (!hp || typeof hp.cur !== "number") hp = { cur: c.maxHp, temp: 0 };
   document.title = c.name + " – Character Sheet";
   render();
+  renderSpells();
   updateHp();
 }
 
@@ -116,4 +113,27 @@ function updateHp() {
   f.style.width = pct + "%";
   f.style.background = pct > 50 ? "#3e7d32" : pct > 25 ? "#c08a1a" : "#a12222";
   try { localStorage.setItem(key, JSON.stringify(hp)); } catch (e) {}
+}
+
+function renderSpells() {
+  const R = casting(c);
+  if (!R) return;
+  const p = getPicks(c);
+  const chosen = [...p.cantrips, ...p.spells].map(n => DB.find(s => s.name === n)).filter(Boolean).sort(bylevel);
+  let h = "", last = -1;
+  chosen.forEach(s => {
+    if (s.level !== last) { last = s.level; h += `<h3 class="lvl">${levelName(s.level)}</h3>`; }
+    h += spellHtml(s, c.level);
+  });
+  $("sheet").insertAdjacentHTML("beforeend", `
+  <section class="panel spells">
+    <div class="sp-head"><h2>Spellcasting</h2><a class="btn" href="spells.html">Choose spells</a></div>
+    <div class="sp-stats">
+      <span><span class="lbl">Ability</span>${R.ab.toUpperCase()}</span>
+      <span><span class="lbl">Spell save DC</span>${R.dc}</span>
+      <span><span class="lbl">Spell attack</span>${fmt(R.atk)}</span>
+      ${R.slots.map((n, i) => `<span><span class="lbl">${ord(i + 1)} level slots</span>${n}</span>`).join("")}
+    </div>
+    ${h || "<p>No spells chosen yet. Use Choose spells to pick them.</p>"}
+  </section>`);
 }

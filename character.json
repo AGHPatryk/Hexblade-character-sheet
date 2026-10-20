@@ -1,26 +1,29 @@
 {
   "name": "Kaelen Brightwater",
-  "class": "Fighter",
-  "subclass": "Battle Master",
+  "class": "Wizard",
+  "subclass": "School of Evocation",
   "level": 5,
-  "background": "Soldier",
+  "background": "Sage",
   "race": "Half-Elf",
   "alignment": "Neutral Good",
   "xp": 6500,
-  "abilities": { "str": 16, "dex": 14, "con": 15, "int": 10, "wis": 12, "cha": 8 },
-  "saves": ["str", "con"],
-  "skills": ["Athletics", "Perception", "Intimidation", "Acrobatics"],
+  "abilities": { "str": 8, "dex": 14, "con": 14, "int": 17, "wis": 12, "cha": 10 },
+  "saves": ["int", "wis"],
+  "skills": ["Arcana", "History", "Investigation", "Insight"],
   "expertise": [],
-  "ac": 18,
+  "ac": 12,
   "speed": 30,
-  "maxHp": 49,
-  "hitDie": "d10",
+  "maxHp": 32,
+  "hitDie": "d6",
   "attacks": [
-    { "name": "Longsword", "ability": "str", "proficient": true, "damage": "1d8", "type": "slashing" },
-    { "name": "Longbow", "ability": "dex", "proficient": true, "damage": "1d8", "type": "piercing" },
-    { "name": "Handaxe", "ability": "str", "proficient": true, "damage": "1d6", "type": "slashing" }
+    { "name": "Dagger", "ability": "dex", "proficient": true, "damage": "1d4", "type": "piercing" },
+    { "name": "Quarterstaff", "ability": "str", "proficient": true, "damage": "1d6", "type": "bludgeoning" }
   ],
-  "personality": "Dry humor, fiercely loyal, never leaves a wounded ally behind.",
-  "equipment": ["Chain mail", "Shield", "Longsword", "Longbow, 20 arrows", "2 handaxes", "Explorer's pack", "Healing potion x2", "34 gp"],
-  "features": ["Second Wind", "Action Surge", "Extra Attack", "Combat Superiority (4d8 superiority dice)", "Darkvision 60 ft", "Fey Ancestry"]
+  "spellcasting": {
+    "cantrips": ["Fire Bolt", "Ray of Frost", "Mage Hand", "Light"],
+    "spells": ["Magic Missile", "Shield", "Mage Armor", "Burning Hands", "Scorching Ray", "Misty Step", "Fireball", "Counterspell"]
+  },
+  "personality": "Curious to a fault, collects obscure footnotes, and keeps calm when a plan catches fire.",
+  "equipment": ["Spellbook", "Quarterstaff", "Dagger", "Component pouch", "Scholar's pack", "Healing potion", "21 gp"],
+  "features": ["Arcane Recovery", "Sculpt Spells", "Darkvision 60 ft", "Fey Ancestry"]
 }

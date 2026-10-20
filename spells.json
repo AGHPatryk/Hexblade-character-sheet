@@ -1,46 +1,616 @@
 [
-  {
-    "name": "Arms of Hadar",
-    "level": 1,
-    "school": "Conjuration",
-    "classes": ["Warlock"],
-    "casting_time": "Action",
-    "range": "Self",
-    "components": "V, S",
-    "duration": "Instantaneous",
-    "description": "Summons dark energy tendrils from the caster, forcing nearby targets to make a Strength saving throw or take necrotic damage."
-  },
-  {
-    "name": "Armor of Agathys",
-    "level": 1,
-    "school": "Abjuration",
-    "classes": ["Warlock"],
-    "casting_time": "Bonus Action",
-    "range": "Self",
-    "components": "V, S, M (a shard of blue glass)",
-    "duration": "1 hour",
-    "description": "Surrounds the caster in protective magical frost that grants temporary hit points and retaliates with cold damage against melee attackers."
-  },
-  {
-    "name": "Astral Projection",
-    "level": 9,
-    "school": "Necromancy",
-    "classes": ["Cleric", "Warlock", "Wizard"],
-    "casting_time": "1 hour",
-    "range": "10 feet",
-    "components": "V, S, M (specific valuable components)",
-    "duration": "Until dispelled",
-    "description": "Projects the soul and form of the caster and willing allies into the Astral Plane, leaving their physical bodies behind in suspended animation."
-  },
-  {
-    "name": "Aura of Purity",
-    "level": 4,
-    "school": "Abjuration",
-    "classes": ["Cleric", "Paladin"],
-    "casting_time": "Action",
-    "range": "Self",
-    "components": "V",
-    "duration": "Concentration, up to 10 minutes",
-    "description": "Emits a cleansing energy field around the caster that grants nearby allies resistance to poison and protection against multiple adverse conditions."
-  }
+ {
+  "name": "Fire Bolt",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d10",
+  "type": "fire",
+  "attack": "Ranged",
+  "desc": "Hurl a mote of fire at a creature or object. Unattended flammable objects ignite."
+ },
+ {
+  "name": "Ray of Frost",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d8",
+  "type": "cold",
+  "attack": "Ranged",
+  "desc": "A frigid beam hits the target and cuts its speed by 10 ft until the start of your next turn."
+ },
+ {
+  "name": "Shocking Grasp",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d8",
+  "type": "lightning",
+  "attack": "Melee",
+  "desc": "Lightning leaps from your hand. The target can't take reactions until its next turn."
+ },
+ {
+  "name": "Mage Hand",
+  "level": 0,
+  "school": "Conjuration",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "bard"
+  ],
+  "time": "1 action",
+  "range": "30 ft",
+  "components": "V, S",
+  "duration": "1 minute",
+  "desc": "A spectral hand carries, opens or manipulates objects up to 10 lb."
+ },
+ {
+  "name": "Light",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "cleric",
+   "sorcerer",
+   "bard"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, M",
+  "duration": "1 hour",
+  "desc": "An object glows with bright light in a 20 ft radius."
+ },
+ {
+  "name": "Sacred Flame",
+  "level": 0,
+  "school": "Evocation",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d8",
+  "type": "radiant",
+  "save": "DEX",
+  "desc": "Radiance descends on a creature you can see. Cover gives it no bonus to the save."
+ },
+ {
+  "name": "Vicious Mockery",
+  "level": 0,
+  "school": "Enchantment",
+  "classes": [
+   "bard"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V",
+  "duration": "Instantaneous",
+  "damage": "1d4",
+  "type": "psychic",
+  "save": "WIS",
+  "desc": "A cutting insult. On a failed save the target has disadvantage on its next attack roll."
+ },
+ {
+  "name": "Guidance",
+  "level": 0,
+  "school": "Divination",
+  "classes": [
+   "cleric",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Concentration, 1 minute",
+  "desc": "The target adds 1d4 to one ability check of its choice."
+ },
+ {
+  "name": "Magic Missile",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "3 × (1d4+1)",
+  "type": "force",
+  "desc": "Three glowing darts strike creatures you choose and never miss.",
+  "higher": "One extra dart for each slot level above 1st."
+ },
+ {
+  "name": "Shield",
+  "level": 1,
+  "school": "Abjuration",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 reaction",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "1 round",
+  "desc": "+5 AC until your next turn, including against the triggering attack. Negates Magic Missile."
+ },
+ {
+  "name": "Mage Armor",
+  "level": 1,
+  "school": "Abjuration",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, S, M",
+  "duration": "8 hours",
+  "desc": "A willing creature wearing no armor has base AC 13 + Dex modifier."
+ },
+ {
+  "name": "Burning Hands",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "15 ft cone",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "3d6",
+  "type": "fire",
+  "save": "DEX",
+  "desc": "Flames fan out from your fingers. Half damage on a successful save.",
+  "higher": "+1d6 for each slot level above 1st."
+ },
+ {
+  "name": "Thunderwave",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "bard",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "15 ft cube (self)",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "2d8",
+  "type": "thunder",
+  "save": "CON",
+  "desc": "A booming wave. Failed save: damage and pushed 10 ft. Success: half damage.",
+  "higher": "+1d8 for each slot level above 1st."
+ },
+ {
+  "name": "Sleep",
+  "level": 1,
+  "school": "Enchantment",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "bard"
+  ],
+  "time": "1 action",
+  "range": "90 ft",
+  "components": "V, S, M",
+  "duration": "1 minute",
+  "desc": "Roll 5d8: creatures in a 20 ft radius with that many total hit points or fewer fall unconscious, lowest first.",
+  "higher": "+2d8 for each slot level above 1st."
+ },
+ {
+  "name": "Cure Wounds",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "cleric",
+   "bard",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "1d8",
+  "type": "healing",
+  "desc": "A creature you touch regains hit points equal to the dice plus your spellcasting modifier.",
+  "higher": "+1d8 for each slot level above 1st."
+ },
+ {
+  "name": "Healing Word",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "cleric",
+   "bard",
+   "druid"
+  ],
+  "time": "1 bonus action",
+  "range": "60 ft",
+  "components": "V",
+  "duration": "Instantaneous",
+  "damage": "1d4",
+  "type": "healing",
+  "desc": "A creature you can see regains hit points equal to the dice plus your spellcasting modifier.",
+  "higher": "+1d4 for each slot level above 1st."
+ },
+ {
+  "name": "Guiding Bolt",
+  "level": 1,
+  "school": "Evocation",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "1 round",
+  "damage": "4d6",
+  "type": "radiant",
+  "attack": "Ranged",
+  "desc": "A flash of light. The next attack roll against the target before your next turn has advantage.",
+  "higher": "+1d6 for each slot level above 1st."
+ },
+ {
+  "name": "Bless",
+  "level": 1,
+  "school": "Enchantment",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "30 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 1 minute",
+  "desc": "Up to three creatures add 1d4 to attack rolls and saving throws.",
+  "higher": "One extra creature for each slot level above 1st."
+ },
+ {
+  "name": "Detect Magic",
+  "level": 1,
+  "school": "Divination",
+  "classes": [
+   "wizard",
+   "cleric",
+   "sorcerer",
+   "bard",
+   "druid"
+  ],
+  "time": "1 action (ritual)",
+  "range": "Self",
+  "components": "V, S",
+  "duration": "Concentration, 10 minutes",
+  "desc": "Sense magic within 30 ft and see a faint aura around magical objects or creatures."
+ },
+ {
+  "name": "Scorching Ray",
+  "level": 2,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "3 × 2d6",
+  "type": "fire",
+  "attack": "Ranged",
+  "desc": "Three rays of fire, each needing its own attack roll.",
+  "higher": "One extra ray for each slot level above 2nd."
+ },
+ {
+  "name": "Misty Step",
+  "level": 2,
+  "school": "Conjuration",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 bonus action",
+  "range": "Self",
+  "components": "V",
+  "duration": "Instantaneous",
+  "desc": "Teleport up to 30 ft to an unoccupied space you can see."
+ },
+ {
+  "name": "Hold Person",
+  "level": 2,
+  "school": "Enchantment",
+  "classes": [
+   "wizard",
+   "cleric",
+   "sorcerer",
+   "bard",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 1 minute",
+  "save": "WIS",
+  "desc": "A humanoid is paralyzed on a failed save and repeats the save at the end of each of its turns.",
+  "higher": "One extra humanoid for each slot level above 2nd."
+ },
+ {
+  "name": "Spiritual Weapon",
+  "level": 2,
+  "school": "Evocation",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 bonus action",
+  "range": "60 ft",
+  "components": "V, S",
+  "duration": "1 minute",
+  "damage": "1d8 + mod",
+  "type": "force",
+  "attack": "Melee",
+  "desc": "A floating weapon strikes on the turn you cast it and as a bonus action on later turns.",
+  "higher": "+1d8 for every two slot levels above 2nd."
+ },
+ {
+  "name": "Shatter",
+  "level": 2,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "bard"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "3d8",
+  "type": "thunder",
+  "save": "CON",
+  "desc": "A painfully loud ring in a 10 ft radius. Half damage on a success.",
+  "higher": "+1d8 for each slot level above 2nd."
+ },
+ {
+  "name": "Fireball",
+  "level": 3,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "150 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "8d6",
+  "type": "fire",
+  "save": "DEX",
+  "desc": "A bright streak blossoms into a 20 ft radius explosion. Half damage on a success.",
+  "higher": "+1d6 for each slot level above 3rd."
+ },
+ {
+  "name": "Lightning Bolt",
+  "level": 3,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "100 ft line",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "8d6",
+  "type": "lightning",
+  "save": "DEX",
+  "desc": "A 5 ft wide bolt of lightning. Half damage on a success.",
+  "higher": "+1d6 for each slot level above 3rd."
+ },
+ {
+  "name": "Counterspell",
+  "level": 3,
+  "school": "Abjuration",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 reaction",
+  "range": "60 ft",
+  "components": "S",
+  "duration": "Instantaneous",
+  "desc": "Stop a spell being cast. Spells of 3rd level or lower fail; higher ones need an ability check (DC 10 + spell level)."
+ },
+ {
+  "name": "Revivify",
+  "level": 3,
+  "school": "Necromancy",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "Touch",
+  "components": "V, S, M (300 gp diamonds)",
+  "duration": "Instantaneous",
+  "desc": "Return a creature that died within the last minute to life with 1 hit point."
+ },
+ {
+  "name": "Spirit Guardians",
+  "level": 3,
+  "school": "Conjuration",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "Self (15 ft radius)",
+  "components": "V, S, M",
+  "duration": "Concentration, 10 minutes",
+  "damage": "3d8",
+  "type": "radiant",
+  "save": "WIS",
+  "desc": "Spirits surround you and hamper hostile creatures. Half damage on a success.",
+  "higher": "+1d8 for each slot level above 3rd."
+ },
+ {
+  "name": "Ice Storm",
+  "level": 4,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "300 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "2d8 + 4d6",
+  "type": "bludgeoning and cold",
+  "save": "DEX",
+  "desc": "Hail pounds a 20 ft radius and makes the ground difficult terrain. Half damage on a success.",
+  "higher": "+1d8 bludgeoning for each slot level above 4th."
+ },
+ {
+  "name": "Polymorph",
+  "level": 4,
+  "school": "Transmutation",
+  "classes": [
+   "wizard",
+   "sorcerer",
+   "bard",
+   "druid"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 1 hour",
+  "save": "WIS",
+  "desc": "Turn a creature into a beast of challenge rating equal to or lower than its level."
+ },
+ {
+  "name": "Cone of Cold",
+  "level": 5,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "60 ft cone",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "8d8",
+  "type": "cold",
+  "save": "CON",
+  "desc": "A blast of cold air. Creatures killed by it become frozen statues. Half damage on a success.",
+  "higher": "+1d8 for each slot level above 5th."
+ },
+ {
+  "name": "Wall of Force",
+  "level": 5,
+  "school": "Evocation",
+  "classes": [
+   "wizard"
+  ],
+  "time": "1 action",
+  "range": "120 ft",
+  "components": "V, S, M",
+  "duration": "Concentration, 10 minutes",
+  "desc": "An invisible, indestructible wall of force that nothing can physically pass through."
+ },
+ {
+  "name": "Flame Strike",
+  "level": 5,
+  "school": "Evocation",
+  "classes": [
+   "cleric"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "4d6 + 4d6",
+  "type": "fire and radiant",
+  "save": "DEX",
+  "desc": "A column of divine fire in a 10 ft radius. Half damage on a success.",
+  "higher": "+1d6 fire or radiant for each slot level above 5th."
+ },
+ {
+  "name": "Chain Lightning",
+  "level": 6,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "150 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "10d8",
+  "type": "lightning",
+  "save": "DEX",
+  "desc": "A bolt strikes one target, then arcs to up to three others within 30 ft. Half damage on a success.",
+  "higher": "One extra target for each slot level above 6th."
+ },
+ {
+  "name": "Disintegrate",
+  "level": 6,
+  "school": "Transmutation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "60 ft",
+  "components": "V, S, M",
+  "duration": "Instantaneous",
+  "damage": "10d6 + 40",
+  "type": "force",
+  "save": "DEX",
+  "desc": "A thin green ray. A target reduced to 0 hit points turns to fine dust."
+ },
+ {
+  "name": "Meteor Swarm",
+  "level": 9,
+  "school": "Evocation",
+  "classes": [
+   "wizard",
+   "sorcerer"
+  ],
+  "time": "1 action",
+  "range": "1 mile",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "damage": "20d6 + 20d6",
+  "type": "fire and bludgeoning",
+  "save": "DEX",
+  "desc": "Four blazing orbs strike different points and explode in 40 ft radius spheres. Half damage on a success."
+ }
 ]
