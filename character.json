@@ -1,22 +1,22 @@
 {
-  "name": "Seraphine Vale",
+  "name": "Fili",
   "class": "Warlock",
-  "subclass": "The Fiend",
-  "level": 5,
-  "background": "Charlatan",
-  "race": "Half-Elf",
+  "subclass": "The Hexblade",
+  "level": 3,
+  "background": "Cursed Farmer",
+  "race": "Dwarf",
   "alignment": "Chaotic Neutral",
-  "xp": 6500,
+  "xp": 0,
   "abilities": { "str": 8, "dex": 14, "con": 14, "int": 10, "wis": 12, "cha": 17 },
   "saves": ["wis", "cha"],
-  "skills": ["Arcana", "Deception", "Intimidation", "Sleight of Hand"],
+  "skills": ["Animal Handling", "Deception", "Intimidation", "Nature"],
   "expertise": [],
-  "ac": 13,
+  "ac": 12,
   "speed": 30,
-  "maxHp": 38,
+  "maxHp": 33,
   "hitDie": "d8",
   "attacks": [
-    { "name": "Dagger", "ability": "dex", "proficient": true, "damage": "1d4", "type": "piercing" },
+    { "name": "Pała", "ability": "char", "proficient": true, "damage": "1d8", "type": "bludgeoning/necrotic/psychic/radiant" },
     { "name": "Light crossbow", "ability": "dex", "proficient": true, "damage": "1d8", "type": "piercing" }
   ],
   "spellcasting": {
@@ -26,5 +26,5 @@
   },
   "personality": "Smiles at the wrong moments and always reads the fine print of a bargain.",
   "equipment": ["Leather armor", "Light crossbow, 20 bolts", "2 daggers", "Arcane focus", "Scholar's pack", "Forged letters of passage", "15 gp"],
-  "features": ["Pact Magic", "Dark One's Blessing", "Eldritch Invocations (3 known)", "Pact of the Tome", "Darkvision 60 ft", "Fey Ancestry"]
+  "features": ["Pact Magic", "Dark One's Blessing", "Eldritch Invocations (3 known)", "Pact of the Blade", "Darkvision 60 ft", "Fey Ancestry"]
 }
