@@ -16,7 +16,7 @@
   "maxHp": 33,
   "hitDie": "d8",
   "attacks": [
-    { "name": "Pała", "ability": "char", "proficient": true, "damage": "1d8", "type": "bludgeoning/necrotic/psychic/radiant" },
+    { "name": "Pała", "ability": "cha", "proficient": true, "damage": "1d8", "type": "bludgeoning/necrotic/psychic/radiant" },
     { "name": "Light crossbow", "ability": "dex", "proficient": true, "damage": "1d8", "type": "piercing" }
   ],
   "spellcasting": {
