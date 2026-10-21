@@ -1,0 +1,285 @@
+[
+ {
+  "name": "Agonizing Blast",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "cantrip": "damage",
+  "choose": "cantrip",
+  "repeatable": true,
+  "desc": "Pick a damaging Warlock cantrip you know. Add your Charisma modifier to its damage rolls."
+ },
+ {
+  "name": "Armor of Shadows",
+  "source": "2024 Player's Handbook",
+  "level": 0,
+  "desc": "You can cast Mage Armor on yourself without using a spell slot."
+ },
+ {
+  "name": "Ascendant Step",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "desc": "You can cast Levitate on yourself without using a spell slot."
+ },
+ {
+  "name": "Devil's Sight",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "desc": "You see normally in Dim Light and Darkness, magical or not, out to 120 feet."
+ },
+ {
+  "name": "Devouring Blade",
+  "source": "2024 Player's Handbook",
+  "level": 12,
+  "requires": [
+   "Thirsting Blade"
+  ],
+  "desc": "The extra attack from Thirsting Blade becomes two extra attacks instead of one."
+ },
+ {
+  "name": "Eldritch Mind",
+  "source": "2024 Player's Handbook",
+  "level": 0,
+  "desc": "You have Advantage on Constitution saving throws made to maintain Concentration."
+ },
+ {
+  "name": "Eldritch Smite",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "requires": [
+   "Pact of the Blade"
+  ],
+  "desc": "Once per turn when you hit with your pact weapon, you can spend a Pact Magic slot to add Force damage (1d8, plus 1d8 per slot level). A Huge or smaller target can also be knocked Prone."
+ },
+ {
+  "name": "Eldritch Spear",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "cantrip": "damage",
+  "choose": "cantrip",
+  "repeatable": true,
+  "farRange": true,
+  "desc": "Pick a damaging Warlock cantrip you know with a range of 10+ feet. Its range increases by 30 feet times your Warlock level."
+ },
+ {
+  "name": "Fiendish Vigor",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "desc": "You can cast False Life on yourself without a spell slot, and you always get the maximum Temporary Hit Points."
+ },
+ {
+  "name": "Gaze of Two Minds",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "desc": "As a Bonus Action, touch a willing creature and perceive through its senses until the end of your next turn. You can keep it going with later Bonus Actions and cast spells from its space if within 60 feet."
+ },
+ {
+  "name": "Gift of the Depths",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "desc": "You can breathe underwater and gain a Swim Speed equal to your Speed. You can also cast Water Breathing once per Long Rest without a spell slot."
+ },
+ {
+  "name": "Gift of the Protectors",
+  "source": "2024 Player's Handbook",
+  "level": 9,
+  "requires": [
+   "Pact of the Tome"
+  ],
+  "desc": "Your Book of Shadows gains a page where creatures can write their names (up to your Charisma modifier, minimum one). Once per Long Rest, a named creature dropped to 0 HP without being killed outright stays at 1 HP instead."
+ },
+ {
+  "name": "Investment of the Chain Master",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "requires": [
+   "Pact of the Chain"
+  ],
+  "desc": "Your Find Familiar gains a 40-foot Fly or Swim Speed, can attack on your Bonus Action, can deal Necrotic or Radiant damage, uses your spell save DC, and you can give it Resistance as a Reaction."
+ },
+ {
+  "name": "Lessons of the First Ones",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "choose": "feat",
+  "repeatable": true,
+  "desc": "You gain one Origin feat of your choice."
+ },
+ {
+  "name": "Lifedrinker",
+  "source": "2024 Player's Handbook",
+  "level": 9,
+  "requires": [
+   "Pact of the Blade"
+  ],
+  "desc": "Once per turn when you hit with your pact weapon, add 1d6 Necrotic, Psychic or Radiant damage, and you may spend a Hit Point Die to heal (roll plus Constitution modifier, minimum 1)."
+ },
+ {
+  "name": "Mask of Many Faces",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "desc": "You can cast Disguise Self without a spell slot."
+ },
+ {
+  "name": "Master of Myriad Forms",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "desc": "You can cast Alter Self without a spell slot."
+ },
+ {
+  "name": "Misty Visions",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "desc": "You can cast Silent Image without a spell slot."
+ },
+ {
+  "name": "One with Shadows",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "desc": "While in Dim Light or Darkness, you can cast Invisibility on yourself without a spell slot."
+ },
+ {
+  "name": "Otherworldly Leap",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "desc": "You can cast Jump on yourself without a spell slot."
+ },
+ {
+  "name": "Pact of the Blade",
+  "source": "2024 Player's Handbook",
+  "level": 0,
+  "desc": "As a Bonus Action, conjure a Simple or Martial Melee pact weapon, or bond with a magic weapon you touch. Use Charisma for its attacks and damage, and it can deal Necrotic, Psychic or Radiant damage."
+ },
+ {
+  "name": "Pact of the Chain",
+  "source": "2024 Player's Handbook",
+  "level": 0,
+  "desc": "You learn Find Familiar and can cast it as a Magic action without a slot, with extra special familiar forms. You can give up one of your attacks so your familiar attacks with its Reaction."
+ },
+ {
+  "name": "Pact of the Tome",
+  "source": "2024 Player's Handbook",
+  "level": 0,
+  "desc": "You conjure a Book of Shadows holding three cantrips and two level 1 Ritual spells from any class list. It also works as your Spellcasting Focus."
+ },
+ {
+  "name": "Repelling Blast",
+  "source": "2024 Player's Handbook",
+  "level": 2,
+  "cantrip": "attack",
+  "choose": "cantrip",
+  "repeatable": true,
+  "desc": "Pick a Warlock cantrip you know that needs an attack roll. When it hits a Large or smaller creature, you can push it up to 10 feet away."
+ },
+ {
+  "name": "Thirsting Blade",
+  "source": "2024 Player's Handbook",
+  "level": 5,
+  "requires": [
+   "Pact of the Blade"
+  ],
+  "desc": "You gain Extra Attack for your pact weapon only, letting you attack twice with it when you take the Attack action."
+ },
+ {
+  "name": "Visions of Distant Realms",
+  "source": "2024 Player's Handbook",
+  "level": 9,
+  "desc": "You can cast Arcane Eye without a spell slot."
+ },
+ {
+  "name": "Whispers of the Grave",
+  "source": "2024 Player's Handbook",
+  "level": 7,
+  "desc": "You can cast Speak with Dead without a spell slot."
+ },
+ {
+  "name": "Witch Sight",
+  "source": "2024 Player's Handbook",
+  "level": 15,
+  "desc": "You have Truesight out to 30 feet."
+ },
+ {
+  "name": "Aspect of the Moon",
+  "source": "Xanathar's Guide to Everything",
+  "level": 0,
+  "requires": [
+   "Pact of the Tome"
+  ],
+  "desc": "You no longer need sleep and can't be forced to sleep. You get the benefits of a Long Rest by spending 8 hours on light activity."
+ },
+ {
+  "name": "Cloak of Flies",
+  "source": "Xanathar's Guide to Everything",
+  "level": 5,
+  "desc": "As a Bonus Action, wrap yourself in a 5-foot aura of buzzing flies. You gain Advantage on Intimidation but Disadvantage on other Charisma checks, and creatures starting their turn in it take poison damage equal to your Charisma modifier. Once per Short or Long Rest."
+ },
+ {
+  "name": "Ghostly Gaze",
+  "source": "Xanathar's Guide to Everything",
+  "level": 7,
+  "desc": "As an action, see through solid objects out to 30 feet and gain darkvision there for 1 minute (Concentration). Once per Short or Long Rest."
+ },
+ {
+  "name": "Gift of the Ever-Living Ones",
+  "source": "Xanathar's Guide to Everything",
+  "level": 0,
+  "requires": [
+   "Pact of the Chain"
+  ],
+  "desc": "While your familiar is within 100 feet, dice rolled to determine hit points you regain count as their maximum."
+ },
+ {
+  "name": "Grasp of Hadar",
+  "source": "Xanathar's Guide to Everything",
+  "level": 0,
+  "cantrip": "Eldritch Blast",
+  "desc": "Once per turn when Eldritch Blast hits a creature, you can pull it 10 feet in a straight line toward you."
+ },
+ {
+  "name": "Improved Pact Weapon",
+  "source": "Xanathar's Guide to Everything",
+  "level": 0,
+  "requires": [
+   "Pact of the Blade"
+  ],
+  "desc": "Your pact weapon works as a spellcasting focus and gains a +1 bonus to attack and damage rolls unless it already has one. It can also be a bow or crossbow."
+ },
+ {
+  "name": "Lance of Lethargy",
+  "source": "Xanathar's Guide to Everything",
+  "level": 0,
+  "cantrip": "Eldritch Blast",
+  "desc": "Once per turn when Eldritch Blast hits a creature, you can reduce its speed by 10 feet until the end of your next turn."
+ },
+ {
+  "name": "Maddening Hex",
+  "source": "Xanathar's Guide to Everything",
+  "level": 5,
+  "spell": "Hex",
+  "desc": "As a Bonus Action, deal psychic damage equal to your Charisma modifier (minimum 1) to your Hex target and to creatures you choose within 5 feet of it. You must see the target, within 30 feet."
+ },
+ {
+  "name": "Relentless Hex",
+  "source": "Xanathar's Guide to Everything",
+  "level": 7,
+  "spell": "Hex",
+  "desc": "As a Bonus Action, teleport up to 30 feet to an unoccupied space you can see within 5 feet of your Hex target, which you must be able to see."
+ },
+ {
+  "name": "Shroud of Shadow",
+  "source": "Xanathar's Guide to Everything",
+  "level": 15,
+  "desc": "You can cast Invisibility at will without a spell slot."
+ },
+ {
+  "name": "Tomb of Levistus",
+  "source": "Xanathar's Guide to Everything",
+  "level": 5,
+  "desc": "As a Reaction when you take damage, entomb yourself in ice for 10 temporary hit points per Warlock level. Afterward you are vulnerable to fire, have Speed 0 and are Incapacitated until the ice melts. Once per Short or Long Rest."
+ },
+ {
+  "name": "Trickster's Escape",
+  "source": "Xanathar's Guide to Everything",
+  "level": 7,
+  "desc": "You can cast Freedom of Movement on yourself once without a spell slot, regaining the ability after a Long Rest."
+ }
+]

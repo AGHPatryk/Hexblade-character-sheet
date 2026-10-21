@@ -73,3 +73,6 @@ p{margin:.2rem 0}
 .cast{font-size:.85rem;white-space:nowrap;margin-top:.3rem}
 .cast select{font:inherit;border:2px solid var(--ink);border-radius:6px;background:#fffaf0;padding:.1rem .2rem}
 .spell summary small{font-weight:400;color:var(--red)}
+.dim{opacity:.55}
+.invnote{flex-basis:100%;margin:-.2rem 0 .3rem 1.7rem;font-size:.85rem;font-style:italic;color:var(--red)}
+.cast input{font:inherit;border:2px solid var(--ink);border-radius:6px;background:#fffaf0;padding:.1rem .3rem;width:9rem}

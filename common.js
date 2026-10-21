@@ -37,8 +37,8 @@ function casting(c) {
 
 async function loadAll() {
   const get = u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); });
-  const [c, spells] = await Promise.all([get("character.json"), get("spells.json")]);
-  return { c, spells };
+  const [c, spells, invs] = await Promise.all([get("character.json"), get("spells.json"), get("invocations.json").catch(() => [])]);
+  return { c, spells, invs };
 }
 
 // Chosen spells live in the browser; character.json provides the starting selection.
@@ -97,12 +97,50 @@ function spellHtml(s, L, cast) {
     <dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></details>`;
 }
 
-// Saves character.json with the given spell picks merged in, ready to commit to the repo
-function downloadCharacter(c, p) {
+// Saves character.json with the given picks merged in, ready to commit to the repo
+function downloadCharacter(c, p, inv = invLimit(c) ? getInv(c) : null) {
   const out = { ...c, spellcasting: { ...(c.spellcasting || {}), cantrips: p.cantrips, spells: p.spells, casts: p.casts } };
+  if (inv) out.invocations = inv;
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2) + "\n"], { type: "application/json" }));
   a.download = "character.json";
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+// ---- Warlock Eldritch Invocations ----
+const INV_COUNT = [0,1,3,3,3,5,5,6,6,7,7,7,8,8,8,9,9,9,10,10,10]; // known, by Warlock level
+const invLimit = c => c.class.toLowerCase() === "warlock" ? INV_COUNT[c.level] : 0;
+const invKey = c => "inv:" + c.name;
+function seedInv(c) { const s = c.invocations || {}; return { picks: [...(s.picks || [])], notes: { ...(s.notes || {}) } }; }
+function getInv(c) {
+  try { const p = JSON.parse(localStorage.getItem(invKey(c))); if (p) return { picks: p.picks || [], notes: p.notes || {} }; } catch (e) {}
+  return seedInv(c);
+}
+function saveInv(c, p) { try { localStorage.setItem(invKey(c), JSON.stringify(p)); } catch (e) {} }
+
+// What an invocation still needs: level, other invocations, known cantrips or spells
+function invProblems(v, c, inv, sp, DB) {
+  const out = [], known = sp.cantrips.map(n => DB.find(s => s.name === n)).filter(Boolean);
+  if (v.level && c.level < v.level) out.push(`Level ${v.level}+ Warlock`);
+  (v.requires || []).forEach(r => { if (!inv.picks.includes(r)) out.push(r); });
+  if (v.cantrip === "damage" && !known.some(s => s.damage)) out.push("a damaging Warlock cantrip");
+  if (v.cantrip === "attack" && !known.some(s => s.damage && s.attack)) out.push("a damaging cantrip that uses an attack roll");
+  if (v.cantrip && !["damage", "attack"].includes(v.cantrip) && !sp.cantrips.includes(v.cantrip)) out.push(v.cantrip + " cantrip");
+  if (v.spell && !sp.spells.includes(v.spell)) out.push(v.spell + " spell");
+  return out;
+}
+function prereqText(v) {
+  const t = [];
+  if (v.level) t.push(`Level ${v.level}+`);
+  if (v.requires) t.push(...v.requires);
+  if (v.cantrip === "damage") t.push("damaging cantrip");
+  else if (v.cantrip === "attack") t.push("attack-roll cantrip");
+  else if (v.cantrip) t.push(v.cantrip + " cantrip");
+  if (v.spell) t.push(v.spell + " spell");
+  return t.join(", ");
+}
+function invHtml(v, note) {
+  return `<details class="spell"><summary><b>${v.name}${note ? ` <small>(${note})</small>` : ""}</b><span>${prereqText(v) || "No prerequisite"}</span><span>${v.source}</span></summary>
+    <p>${v.desc}</p>${v.repeatable ? "<p><em>Repeatable</em> with a different choice each time.</p>" : ""}</details>`;
 }

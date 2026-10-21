@@ -1,9 +1,9 @@
 const ABIL = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SKILLS = [["Acrobatics","dex"],["Animal Handling","wis"],["Arcana","int"],["Athletics","str"],["Deception","cha"],["History","int"],["Insight","wis"],["Intimidation","cha"],["Investigation","int"],["Medicine","wis"],["Nature","int"],["Perception","wis"],["Performance","cha"],["Persuasion","cha"],["Religion","int"],["Sleight of Hand","dex"],["Stealth","dex"],["Survival","wis"]];
-let c, DB, hp, key;
+let c, DB, INV, hp, key;
 
 loadAll()
-  .then(d => { c = d.c; DB = d.spells; start(); })
+  .then(d => { c = d.c; DB = d.spells; INV = d.invs; start(); })
   .catch(() => { $("sheet").innerHTML = "<p class='loading'>Could not load character.json or spells.json. Serve the folder over http (GitHub Pages or <code>python -m http.server</code>) rather than opening the file directly.</p>"; });
 
 function start() {
@@ -13,6 +13,7 @@ function start() {
   document.title = c.name + " – Character Sheet";
   render();
   renderSpells();
+  renderInvocations();
   updateHp();
 }
 
@@ -139,6 +140,18 @@ function renderSpells() {
     ${h || "<p>No spells chosen yet. Use Choose spells to pick them.</p>"}
   </section>`);
   $("dlc").onclick = () => downloadCharacter(c, p);
+}
+
+function renderInvocations() {
+  const lim = invLimit(c);
+  if (!lim || !INV.length) return;
+  const p = getInv(c);
+  const chosen = p.picks.map(n => INV.find(v => v.name === n)).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+  $("sheet").insertAdjacentHTML("beforeend", `
+  <section class="panel spells">
+    <div class="sp-head"><h2>Eldritch invocations (${chosen.length}/${lim})</h2><a class="btn" href="invocations.html">Choose invocations</a></div>
+    ${chosen.map(v => invHtml(v, p.notes[v.name])).join("") || "<p>No invocations chosen yet. Use Choose invocations to pick them.</p>"}
+  </section>`);
 }
 
 // Coming back with the browser's back button restores a stale page, so reload it

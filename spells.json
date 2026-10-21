@@ -613,6 +613,23 @@
   "upCount": 1
  },
  {
+  "name": "Protection from Evil and Good",
+  "level": 1,
+  "school": "Abjuration",
+  "classes": [
+   "cleric",
+   "druid",
+   "paladin",
+   "warlock",
+   "wizard"
+  ],
+  "time": "Action",
+  "range": "Touch",
+  "components": "V, S, M (Holy Water, which the spell consumes)",
+  "duration": "Concentration, up to 10 minutes",
+  "desc": "A willing creature you touch is shielded against Aberrations, Celestials, Elementals, Fey, Fiends and Undead. They have Disadvantage on attacks against it, and can't possess it or Charm or Frighten it."
+ },
+ {
   "name": "Shield",
   "level": 1,
   "school": "Abjuration",
